@@ -17,23 +17,33 @@ public class AnimationActivity {
     private static final String TAG = "PepperStudies_AnimationActivity";
     QiContext qiContext;
     Animate animate;
-    Animation animation;
 
     public void setQiContext(QiContext qiContext) {
         this.qiContext = qiContext;
     }
 
-    public void buildAnimation()
-    {
-        animation = AnimationBuilder.with(qiContext) // Create the builder with the context.
-                .withResources(R.raw.animation_demo) // Set the animation resource.
-                .build(); // Build the animation.
-    }
-
-    public void doAnimation(Animation animation)
+   /* public Animation buildAnimation()
     {
         new Thread(() -> {
             if (qiContext != null) {
+                Animation animation = AnimationBuilder.with(qiContext) // Create the builder with the context.
+                .withResources(R.raw.animation_demo) // Set the animation resource.
+                .build(); // Build the animation.
+            }
+        }).start();
+        return animation;
+
+    } */
+
+    public void doAnimation()
+    {
+        new Thread(() -> {
+            if (qiContext != null) {
+
+                Animation animation = AnimationBuilder.with(qiContext) // Create the builder with the context.
+                        .withResources(R.raw.animation_demo) // Set the animation resource.
+                        .build(); // Build the animation.
+
                 animate = AnimateBuilder.with(qiContext)
                         .withAnimation(animation)
                         .build();

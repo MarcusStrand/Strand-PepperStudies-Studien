@@ -75,14 +75,13 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
             }
         });
 
-        /*
         button_doAnimation = findViewById(R.id.button_Animate);
         button_doAnimation.setOnClickListener(v -> {
             if (qiContext != null) {
-                animationActivity.doAnimation(animation);
+                animationActivity.doAnimation();
             }
         });
-        */
+
     }
 }
 
