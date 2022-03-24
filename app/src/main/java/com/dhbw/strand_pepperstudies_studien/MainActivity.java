@@ -10,16 +10,20 @@ import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
 import com.aldebaran.qi.sdk.design.activity.RobotActivity;
 import com.aldebaran.qi.sdk.object.actuation.Animation;
 import com.dhbw.strand_pepperstudies_studien.activities.AnimationActivity;
+import com.dhbw.strand_pepperstudies_studien.activities.MoveActivity;
 import com.dhbw.strand_pepperstudies_studien.activities.SayActivity;
 
 public class MainActivity extends RobotActivity implements RobotLifecycleCallbacks {
 
     private static final String TAG = "PepperStudies_MainActivity";
     private QiContext qiContext;
+
     SayActivity sayActivity;
     AnimationActivity animationActivity;
+    MoveActivity moveActivity;
     Button button_sayHi;
     Button button_doAnimation;
+    Button button_moveForward;
 
     Animation animation;
 
@@ -35,6 +39,7 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
 
         sayActivity = new SayActivity();
         animationActivity = new AnimationActivity();
+        moveActivity = new MoveActivity();
         Log.i(TAG, "onCreate done!");
     }
 
@@ -53,6 +58,7 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
         this.qiContext = qiContext;
         sayActivity.setQiContext(qiContext);
         animationActivity.setQiContext(qiContext);
+        moveActivity.setQiContext(qiContext);
     }
 
     @Override
@@ -82,6 +88,12 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
             }
         });
 
+        button_moveForward = findViewById(R.id.button_MoveForward);
+        button_moveForward.setOnClickListener(v -> {
+            if (qiContext != null) {
+                moveActivity.MoveForward();
+            }
+        });
     }
 }
 
