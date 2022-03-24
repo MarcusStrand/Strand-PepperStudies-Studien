@@ -2,7 +2,6 @@ package com.dhbw.strand_pepperstudies_studien.activities;
 
 import android.util.Log;
 
-import com.aldebaran.qi.Future;
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.builder.GoToBuilder;
 import com.aldebaran.qi.sdk.builder.TransformBuilder;
@@ -41,7 +40,7 @@ public class MoveActivity {
                 GoTo goTo = GoToBuilder.with(qiContext)
                         .withFrame(targetFrame.frame())
                         .build();
-                Future<Void> goToFuture = goTo.async().run();
+                goTo.async().run();
                 Log.i(TAG, "I walked forward");
             } else {
                 Log.i(TAG, "qiContext is null in MoveActivity");

@@ -8,7 +8,6 @@ import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.QiSDK;
 import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
 import com.aldebaran.qi.sdk.design.activity.RobotActivity;
-import com.aldebaran.qi.sdk.object.actuation.Animation;
 import com.dhbw.strand_pepperstudies_studien.activities.AnimationActivity;
 import com.dhbw.strand_pepperstudies_studien.activities.MoveActivity;
 import com.dhbw.strand_pepperstudies_studien.activities.SayActivity;
@@ -24,8 +23,6 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
     Button button_sayHi;
     Button button_doAnimation;
     Button button_moveForward;
-
-    Animation animation;
 
     // Android Lifecycle Callbacks
 
@@ -48,7 +45,6 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
         QiSDK.unregister(this, this);
         super.onDestroy();
     }
-
 
     // Robot Lifecycle Callbacks
 
