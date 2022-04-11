@@ -10,6 +10,8 @@ import com.dhbw.strand_pepperstudies_studien.R;
 
 public class MoveFragment extends Fragment {
 
+    private static final String TAG = "PepperStudies_MoveFragment";
+
     public MoveFragment() {
         // Required empty public constructor
     }
@@ -17,6 +19,7 @@ public class MoveFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 
     @Override

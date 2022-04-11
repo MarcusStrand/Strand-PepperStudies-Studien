@@ -15,5 +15,19 @@
         android:layout_centerInParent="true"
         android:text="Animation" />
 
+        <Button
+            android:id="@+id/button_Explanation"
+            android:layout_width="322dp"
+            android:layout_height="51dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="44dp"
+            android:layout_marginTop="23dp"
+            android:layout_marginEnd="45dp"
+            android:layout_marginBottom="657dp"
+            android:text="Explain this activity!" />
+
     </RelativeLayout>
 </FrameLayout>

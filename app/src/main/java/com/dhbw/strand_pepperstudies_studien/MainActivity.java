@@ -20,7 +20,6 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
 
     private static final String TAG = "PepperStudies_MainActivity";
     private QiContext qiContext;
-    MainActivity mainActivity;
     FragmentManager fragmentManager;
     BottomNavigationView bottomNavigationView;
 
@@ -68,7 +67,7 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
 
     @Override
     public void onRobotFocusGained(QiContext qiContext) {
-        Log.i(TAG, "Robot Focus gained");
+        Log.i(TAG, "Robot Focus gained (Main Activity)");
         this.qiContext = qiContext;
         sayActivity.setQiContext(qiContext);
         animationActivity.setQiContext(qiContext);
@@ -77,13 +76,13 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
 
     @Override
     public void onRobotFocusLost() {
-        Log.i(TAG, "Robot Focus lost");
+        Log.i(TAG, "Robot Focus lost (Main Activity)");
         this.qiContext = null;
     }
 
     @Override
     public void onRobotFocusRefused(String reason) {
-        Log.i(TAG, "Robot focus refused because " + reason);
+        Log.i(TAG, "Robot focus refused because " + reason +  " (Main Activity)");
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -10,6 +10,8 @@ import com.dhbw.strand_pepperstudies_studien.R;
 
 public class AnimationFragment extends Fragment {
 
+    private static final String TAG = "PepperStudies_AnimationFragment";
+
     public AnimationFragment() {
         // Required empty public constructor
     }
@@ -17,7 +19,6 @@ public class AnimationFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
     }
 
     @Override

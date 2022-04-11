@@ -10,6 +10,8 @@ import com.dhbw.strand_pepperstudies_studien.R;
 
 public class SayFragment extends Fragment {
 
+    private static final String TAG = "PepperStudies_SayFragment";
+
     public SayFragment() {
         // Required empty public constructor
     }

@@ -1,13 +1,27 @@
 package com.dhbw.strand_pepperstudies_studien.fragments;
 
+import android.util.*;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+
+import com.aldebaran.qi.sdk.QiContext;
+import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
 import com.dhbw.strand_pepperstudies_studien.R;
+import com.dhbw.strand_pepperstudies_studien.activities.SayActivity;
+
 import androidx.fragment.app.Fragment;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
+
+    private static final String TAG = "PepperStudies_HomeFragment";
+    View view;
+    SayActivity sayActivity;
+    QiContext qiContext;
+
+    Button button_HomeExplanation;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -22,6 +36,45 @@ public class HomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false);
+        view = inflater.inflate(R.layout.fragment_home, container, false);
+        initializeButtonsAndOnClickListeners();
+
+        return view;
+    }
+
+    // Robot Lifecycle Callbacks
+
+    @Override
+    public void onRobotFocusGained(QiContext qiContext) {
+        this.qiContext = qiContext;
+    }
+
+    @Override
+    public void onRobotFocusLost() {
+
+    }
+
+    @Override
+    public void onRobotFocusRefused(String reason) {
+    }
+
+    public void initializeButtonsAndOnClickListeners()
+    {
+        if(qiContext != null)
+        {
+
+
+        button_HomeExplanation = view.findViewById(R.id.button_Explanation);
+        //TODO: qiContext bekommen
+        button_HomeExplanation.setOnClickListener(v -> {
+            if (qiContext != null) {
+                sayActivity.SaySomething("test");
+            }
+        });
+        }
+        else
+        {
+            Log.i(TAG,"QiContext is null!");
+        }
     }
 }
