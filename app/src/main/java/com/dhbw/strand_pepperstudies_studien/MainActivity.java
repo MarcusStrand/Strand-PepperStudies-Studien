@@ -3,12 +3,10 @@ package com.dhbw.strand_pepperstudies_studien;
 import android.util.*;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.widget.Button;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.QiSDK;
@@ -17,8 +15,6 @@ import com.aldebaran.qi.sdk.design.activity.RobotActivity;
 import com.dhbw.strand_pepperstudies_studien.activities.*;
 import com.dhbw.strand_pepperstudies_studien.fragments.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.android.material.navigation.NavigationBarMenu;
-import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends RobotActivity implements RobotLifecycleCallbacks {
 
@@ -94,18 +90,22 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
         switch (item.getItemId()) {
             case R.id.ic_home:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, homeFragment).commit();
+                sayActivity.SaySomething("Showing home screen");
                 return true;
 
             case R.id.ic_say:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, sayFragment).commit();
+                sayActivity.SaySomething("Showing say activity");
                 return true;
 
             case R.id.ic_move:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, moveFragment).commit();
+                sayActivity.SaySomething("Showing move activity");
                 return true;
 
             case R.id.ic_animation:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, animationFragment).commit();
+                sayActivity.SaySomething("Showing animation activity");
                 return true;
         }
         return false;
