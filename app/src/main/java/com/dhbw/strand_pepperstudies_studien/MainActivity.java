@@ -2,27 +2,40 @@ package com.dhbw.strand_pepperstudies_studien;
 
 import android.util.*;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.widget.Button;
+
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.QiSDK;
 import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
 import com.aldebaran.qi.sdk.design.activity.RobotActivity;
-import com.dhbw.strand_pepperstudies_studien.activities.AnimationActivity;
-import com.dhbw.strand_pepperstudies_studien.activities.MoveActivity;
-import com.dhbw.strand_pepperstudies_studien.activities.SayActivity;
+import com.dhbw.strand_pepperstudies_studien.activities.*;
+import com.dhbw.strand_pepperstudies_studien.fragments.*;
+import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.navigation.NavigationBarMenu;
+import com.google.android.material.navigation.NavigationBarView;
 
 public class MainActivity extends RobotActivity implements RobotLifecycleCallbacks {
 
     private static final String TAG = "PepperStudies_MainActivity";
     private QiContext qiContext;
+    MainActivity mainActivity;
+    FragmentManager fragmentManager;
+    BottomNavigationView bottomNavigationView;
+
+    Fragment homeFragment;
+    Fragment sayFragment;
+    Fragment moveFragment;
+    Fragment animationFragment;
 
     SayActivity sayActivity;
     AnimationActivity animationActivity;
     MoveActivity moveActivity;
-    Button button_sayHi;
-    Button button_doAnimation;
-    Button button_moveForward;
 
     // Android Lifecycle Callbacks
 
@@ -31,8 +44,17 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         QiSDK.register(this, this);
+        this.fragmentManager = getSupportFragmentManager();
 
-        initializeButtonsAndOnClickListeners();
+        bottomNavigationView = findViewById(R.id.bottom_navigation);
+        bottomNavigationView.setOnItemSelectedListener(this::onNavigationItemSelected);
+
+        homeFragment = new HomeFragment();
+        sayFragment = new SayFragment();
+        moveFragment = new MoveFragment();
+        animationFragment = new AnimationFragment();
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, homeFragment).commit();
 
         sayActivity = new SayActivity();
         animationActivity = new AnimationActivity();
@@ -68,28 +90,25 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
         Log.i(TAG, "Robot focus refused because " + reason);
     }
 
-    public void initializeButtonsAndOnClickListeners()
-    {
-        button_sayHi = findViewById(R.id.button_SayHi);
-        button_sayHi.setOnClickListener(v -> {
-            if (qiContext != null) {
-                sayActivity.SaySomething("It is working");
-            }
-        });
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()) {
+            case R.id.ic_home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, homeFragment).commit();
+                return true;
 
-        button_doAnimation = findViewById(R.id.button_Animate);
-        button_doAnimation.setOnClickListener(v -> {
-            if (qiContext != null) {
-                animationActivity.doAnimation();
-            }
-        });
+            case R.id.ic_say:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, sayFragment).commit();
+                return true;
 
-        button_moveForward = findViewById(R.id.button_MoveForward);
-        button_moveForward.setOnClickListener(v -> {
-            if (qiContext != null) {
-                moveActivity.MoveForward();
-            }
-        });
+            case R.id.ic_move:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, moveFragment).commit();
+                return true;
+
+            case R.id.ic_animation:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, animationFragment).commit();
+                return true;
+        }
+        return false;
     }
 }
 
