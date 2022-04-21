@@ -86,7 +86,6 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
                 sayActivity.SaySomething("This button should explain the home screen to you, but it does not");
             }
         });
-
         }
         else
         {

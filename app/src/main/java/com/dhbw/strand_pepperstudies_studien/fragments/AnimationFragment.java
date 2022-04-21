@@ -100,7 +100,6 @@ public class AnimationFragment extends Fragment implements RobotLifecycleCallbac
                     animationActivity.doAnimation();
                 }
             });
-
         }
         else
         {
