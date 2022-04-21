@@ -20,13 +20,13 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
 
     private static final String TAG = "PepperStudies_MainActivity";
     private QiContext qiContext;
-    FragmentManager fragmentManager;
     BottomNavigationView bottomNavigationView;
 
     Fragment homeFragment;
     Fragment sayFragment;
     Fragment moveFragment;
     Fragment animationFragment;
+    Fragment welcomeFragment;
 
     SayActivity sayActivity;
     AnimationActivity animationActivity;
@@ -39,7 +39,6 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         QiSDK.register(this, this);
-        this.fragmentManager = getSupportFragmentManager();
 
         bottomNavigationView = findViewById(R.id.bottom_navigation);
         bottomNavigationView.setOnItemSelectedListener(this::onNavigationItemSelected);
@@ -48,8 +47,9 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
         sayFragment = new SayFragment();
         moveFragment = new MoveFragment();
         animationFragment = new AnimationFragment();
+        welcomeFragment = new WelcomeFragment();
 
-        getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, homeFragment).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.fl_wrapper, welcomeFragment).commit();
 
         sayActivity = new SayActivity();
         animationActivity = new AnimationActivity();
@@ -69,6 +69,7 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
     public void onRobotFocusGained(QiContext qiContext) {
         Log.i(TAG, "Robot Focus gained (Main Activity)");
         this.qiContext = qiContext;
+
         sayActivity.setQiContext(qiContext);
         animationActivity.setQiContext(qiContext);
         moveActivity.setQiContext(qiContext);
@@ -108,6 +109,11 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
                 return true;
         }
         return false;
+    }
+
+    public QiContext getQiContext()
+    {
+        return this.qiContext;
     }
 }
 

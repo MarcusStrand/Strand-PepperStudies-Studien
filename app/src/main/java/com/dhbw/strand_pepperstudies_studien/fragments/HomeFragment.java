@@ -9,6 +9,7 @@ import android.widget.Button;
 
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
+import com.dhbw.strand_pepperstudies_studien.MainActivity;
 import com.dhbw.strand_pepperstudies_studien.R;
 import com.dhbw.strand_pepperstudies_studien.activities.SayActivity;
 
@@ -29,6 +30,9 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
+        sayActivity = new SayActivity();
+
         super.onCreate(savedInstanceState);
     }
 
@@ -37,8 +41,10 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         view = inflater.inflate(R.layout.fragment_home, container, false);
-        initializeButtonsAndOnClickListeners();
+        MainActivity ma = (MainActivity) getActivity();
+        this.qiContext = ma.getQiContext();
 
+        initializeButtonsAndOnClickListeners();
         return view;
     }
 
@@ -62,12 +68,10 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
     {
         if(qiContext != null)
         {
-
-
         button_HomeExplanation = view.findViewById(R.id.button_Explanation);
-        //TODO: qiContext bekommen
         button_HomeExplanation.setOnClickListener(v -> {
             if (qiContext != null) {
+                sayActivity.setQiContext(this.qiContext);
                 sayActivity.SaySomething("test");
             }
         });
