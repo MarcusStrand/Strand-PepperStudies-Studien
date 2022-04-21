@@ -7,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.aldebaran.qi.sdk.QiContext;
-import com.dhbw.strand_pepperstudies_studien.MainActivity;
 import com.dhbw.strand_pepperstudies_studien.R;
 
 public class AnimationFragment extends Fragment {
@@ -28,7 +27,6 @@ public class AnimationFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
 
         return inflater.inflate(R.layout.fragment_animation, container, false);
     }

@@ -9,4 +9,11 @@
     <color name="white">#FFFFFFFF</color>
     <color name="grey">#808080</color>
     <color name="red">#FF0000</color>
+
+    <color name="lightyellow">#F5CD02</color>
+    <color name="darkyellow">#FFCA52</color>
+    <color name="darkorange">#E6973E</color>
+    <color name="lightred">#FF6114</color>
+    <color name="darkred">#F57867</color>
+
 </resources>

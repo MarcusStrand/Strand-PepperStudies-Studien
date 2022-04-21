@@ -82,10 +82,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="@color/teal_200"
-        app:itemBackground="@color/grey"
-        app:itemIconTint="@color/red"
-        app:itemTextColor="@color/black"
+        android:background="@color/black"
+        app:itemBackground="@color/black"
+        app:itemIconTint="@color/darkorange"
+        app:itemTextColor="@color/darkorange"
         app:menu="@menu/nav_menu" />
 
 
