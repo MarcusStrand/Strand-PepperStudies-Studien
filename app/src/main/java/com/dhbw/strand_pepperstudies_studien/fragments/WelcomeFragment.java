@@ -14,6 +14,7 @@ public class WelcomeFragment extends Fragment {
 
     private static final String TAG = "PepperStudies_WelcomeFragment";
 
+
     // Android Lifecycle Callbacks
 
     public WelcomeFragment() {
@@ -29,7 +30,7 @@ public class WelcomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Log.i(TAG, "WelcomeFragment successfully created!");
+        Log.i(TAG,TAG + " successfully created!");
         return inflater.inflate(R.layout.fragment_welcome, container, false);
     }
 }
