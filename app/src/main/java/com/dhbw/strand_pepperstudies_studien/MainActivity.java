@@ -77,13 +77,13 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
 
     @Override
     public void onRobotFocusLost() {
-        Log.i(TAG, "Robot Focus lost (Main Activity)");
+        Log.i(TAG, "Robot Focus lost " + TAG);
         this.qiContext = null;
     }
 
     @Override
     public void onRobotFocusRefused(String reason) {
-        Log.i(TAG, "Robot focus refused because " + reason +  " (Main Activity)");
+        Log.i(TAG, "Robot focus refused because " + reason +  " " + TAG);
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {

@@ -14,6 +14,8 @@ public class WelcomeFragment extends Fragment {
 
     private static final String TAG = "PepperStudies_WelcomeFragment";
 
+    // Android Lifecycle Callbacks
+
     public WelcomeFragment() {
         // Required empty public constructor
     }

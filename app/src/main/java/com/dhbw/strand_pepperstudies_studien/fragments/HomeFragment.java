@@ -19,10 +19,14 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
 
     private static final String TAG = "PepperStudies_HomeFragment";
     View view;
-    SayActivity sayActivity;
     QiContext qiContext;
 
-    Button button_HomeExplanation;
+    Button button_Explanation;
+
+    SayActivity sayActivity;
+
+
+    // Android Lifecycle Callbacks
 
     public HomeFragment() {
         // Required empty public constructor
@@ -48,6 +52,7 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
         return view;
     }
 
+
     // Robot Lifecycle Callbacks
 
     @Override
@@ -57,28 +62,35 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
 
     @Override
     public void onRobotFocusLost() {
-
+        Log.i(TAG, "Robot Focus lost " + TAG);
+        this.qiContext = null;
     }
 
     @Override
     public void onRobotFocusRefused(String reason) {
+        Log.i(TAG, "Robot focus refused because " + reason +  " " + TAG);
     }
+
+
+    //Custom Methods
 
     public void initializeButtonsAndOnClickListeners()
     {
         if(qiContext != null)
         {
-        button_HomeExplanation = view.findViewById(R.id.button_Explanation);
-        button_HomeExplanation.setOnClickListener(v -> {
+        button_Explanation = view.findViewById(R.id.button_Explanation);
+
+        button_Explanation.setOnClickListener(v -> {
             if (qiContext != null) {
                 sayActivity.setQiContext(this.qiContext);
-                sayActivity.SaySomething("test");
+                sayActivity.SaySomething("This button should explain the home screen to you, but it does not");
             }
         });
+
         }
         else
         {
-            Log.i(TAG,"QiContext is null!");
+            Log.i(TAG,"QiContext is null! " + TAG);
         }
     }
 }
