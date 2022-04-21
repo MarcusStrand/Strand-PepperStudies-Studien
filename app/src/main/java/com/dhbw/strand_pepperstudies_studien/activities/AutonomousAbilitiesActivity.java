@@ -94,5 +94,4 @@ public class AutonomousAbilitiesActivity {
         holder.async().release();
         Log.i(TAG, "Turned on autonomous blinking");
     }
-
 }
