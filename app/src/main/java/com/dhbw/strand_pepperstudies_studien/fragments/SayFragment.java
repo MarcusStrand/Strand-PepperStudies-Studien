@@ -11,7 +11,6 @@ import android.widget.Button;
 
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
-import com.aldebaran.qi.sdk.object.conversation.Say;
 import com.dhbw.strand_pepperstudies_studien.MainActivity;
 import com.dhbw.strand_pepperstudies_studien.R;
 import com.dhbw.strand_pepperstudies_studien.activities.SayActivity;
@@ -26,6 +25,7 @@ public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
     Button button_Say;
 
     SayActivity sayActivity;
+
 
     // Android Lifecycle Callbacks
 
@@ -53,6 +53,9 @@ public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
         return view;
     }
 
+
+    // Robot Lifecycle Callbacks
+
     @Override
     public void onRobotFocusGained(QiContext qiContext) {
         this.qiContext = qiContext;
@@ -68,6 +71,9 @@ public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
     public void onRobotFocusRefused(String reason) {
         Log.i(TAG, "Robot focus refused because " + reason +  " " + TAG);
     }
+
+
+    // Custom Methods
 
     public void initializeButtonsAndOnClickListeners()
     {
@@ -95,5 +101,4 @@ public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
             Log.i(TAG,"QiContext is null! " + TAG);
         }
     }
-
 }
