@@ -22,14 +22,13 @@ public class HumanActivity {
     {
         new Thread(() -> {
             if (qiContext != null) {
-                engagedHuman = null;
                 humanAwareness = qiContext.getHumanAwareness();
                 engagedHuman = humanAwareness.getEngagedHuman();
-                Log.i(TAG, "HumanActivity successfully started.");
             } else {
                 Log.i(TAG, "qiContext is null in HumanActivity");
             }
         }).start();
+        Log.i(TAG, "HumanActivity successfully started.");
         return engagedHuman;
     }
 }

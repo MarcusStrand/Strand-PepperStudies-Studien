@@ -153,7 +153,7 @@ public class AnimationFragment extends Fragment implements RobotLifecycleCallbac
     {
         if(engagedHuman != null)
         {
-            textView.setText("Hallo");
+            textView.setText("success");
         }
         textView.setText("Human not found.");
     }
