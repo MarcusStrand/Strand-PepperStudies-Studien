@@ -113,7 +113,9 @@ public class AnimationFragment extends Fragment implements RobotLifecycleCallbac
             button_Explanation.setOnClickListener(v -> {
                 if (qiContext != null) {
                     sayActivity.setQiContext(this.qiContext);
-                    sayActivity.SaySomething("This button should explain the animation screen to you, but it does not");
+                    sayActivity.SaySomething("On this screen you can let me do a custom animation." +
+                            " You can also let me analyze your mood, age, gender and other characteristics." +
+                            " To do so stand in front of me and click the 'Analyze Human' button");
                 }
             });
 
@@ -121,7 +123,7 @@ public class AnimationFragment extends Fragment implements RobotLifecycleCallbac
                 if (qiContext != null) {
                     sayActivity.setQiContext(this.qiContext);
                     animationActivity.setQiContext(this.qiContext);
-                    sayActivity.SaySomething("gnuk, gnuk");
+                    sayActivity.SaySomething("I am going to stretch my metal joints");
                     animationActivity.doAnimation();
                 }
             });

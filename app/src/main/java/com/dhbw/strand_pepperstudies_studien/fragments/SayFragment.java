@@ -92,7 +92,7 @@ public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
             button_Say.setOnClickListener(v -> {
                 if (qiContext != null) {
                     sayActivity.setQiContext(this.qiContext);
-                    sayActivity.SaySomething("I am going to explode in 3, 2, 1.");
+                    sayActivity.SaySomething("I am going to explode in 3,,, 2,,, 1,,, boom!" );
                 }
             });
         }
