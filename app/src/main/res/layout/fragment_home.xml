@@ -12,41 +12,28 @@
 
         <Button
             android:id="@+id/button_SayTest"
-            android:layout_width="293dp"
-            android:layout_height="58dp"
-            android:text="Test settings"
+            android:layout_width="219dp"
+            android:layout_height="51dp"
+            android:text="Test "
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.976"
+            app:layout_constraintHorizontal_bias="0.932"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.169" />
+            app:layout_constraintVertical_bias="0.423" />
 
         <TextView
-            android:layout_width="337dp"
-            android:layout_height="301dp"
-            android:text="This screen does nothing yet."
+            android:layout_width="322dp"
+            android:layout_height="118dp"
+            android:text="TODO: Explanation"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.025"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.896" />
-
-        <Button
-            android:id="@+id/button_Playground"
-            android:layout_width="305dp"
-            android:layout_height="59dp"
-            android:text="Playground Button"
-            android:textColor="@color/black"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.976"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.04" />
+            app:layout_constraintVertical_bias="0.422" />
 
         <Button
             android:id="@+id/button_Explanation"
@@ -60,6 +47,42 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.029" />
+
+        <Switch
+            android:id="@+id/switch_autonomousBlinking"
+            android:layout_width="201dp"
+            android:layout_height="52dp"
+            android:text="Autonomous Blinking"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.911"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.027" />
+
+        <Switch
+            android:id="@+id/switch_backgroundMovement"
+            android:layout_width="201dp"
+            android:layout_height="57dp"
+            android:text="Background Movement"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.909"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.289" />
+
+        <Switch
+            android:id="@+id/switch_basicAwareness"
+            android:layout_width="201dp"
+            android:layout_height="56dp"
+            android:text="Basic Awareness"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.91"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.162" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

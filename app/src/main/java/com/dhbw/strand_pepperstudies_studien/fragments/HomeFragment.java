@@ -6,6 +6,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.Switch;
 
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
@@ -23,8 +25,10 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
     QiContext qiContext;
 
     Button button_Explanation;
-    Button button_Playground;
     Button button_SayTest;
+    Switch switch_AutonomousBlinking;
+    Switch switch_BasicAwareness;
+    Switch switch_BackgroundMovement;
 
     SayActivity sayActivity;
     AutonomousAbilitiesActivity autonomousAbilitiesActivity;
@@ -84,34 +88,53 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
         if(qiContext != null)
         {
         button_Explanation = view.findViewById(R.id.button_Explanation);
-        button_Playground = view.findViewById(R.id.button_Playground);
         button_SayTest = view.findViewById(R.id.button_SayTest);
+        switch_AutonomousBlinking = view.findViewById(R.id.switch_autonomousBlinking);
+        switch_AutonomousBlinking.setChecked(true);
+        switch_BackgroundMovement = view.findViewById(R.id.switch_backgroundMovement);
+        switch_BackgroundMovement.setChecked(true);
+        switch_BasicAwareness = view.findViewById(R.id.switch_basicAwareness);
+        switch_BasicAwareness.setChecked(true);
 
         button_Explanation.setOnClickListener(v -> {
             if (qiContext != null) {
                 sayActivity.setQiContext(this.qiContext);
                 autonomousAbilitiesActivity.setQiContext(this.qiContext);
-
-                sayActivity.SaySomething("on");
-                autonomousAbilitiesActivity.TurnOnBackgroundMovement();
+                sayActivity.SaySomething("Explanation for HomeFragment");
             }
         });
-
-            button_Playground.setOnClickListener(v -> {
-                if (qiContext != null) {
-                    sayActivity.setQiContext(this.qiContext);
-                    autonomousAbilitiesActivity.setQiContext(this.qiContext);
-
-                    sayActivity.SaySomething("off");
-                    autonomousAbilitiesActivity.TurnOffBackgroundMovement();
-                }
-            });
 
             button_SayTest.setOnClickListener(v -> {
                 if (qiContext != null) {
                 sayActivity.setQiContext(this.qiContext);
+                sayActivity.SaySomething("This is a test dialog to test my movement.");
+                }
+            });
 
-                sayActivity.SaySomething("This is a test dialog!");
+            switch_BasicAwareness.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                autonomousAbilitiesActivity.setQiContext(this.qiContext);
+                if(isChecked){
+                    autonomousAbilitiesActivity.TurnOnBasicAwareness();
+                }else{
+                    autonomousAbilitiesActivity.TurnOffBasicAwareness();
+                }
+            });
+
+            switch_BackgroundMovement.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                autonomousAbilitiesActivity.setQiContext(this.qiContext);
+                if(isChecked){
+                    autonomousAbilitiesActivity.TurnOnBackgroundMovement();
+                }else{
+                    autonomousAbilitiesActivity.TurnOffBackgroundMovement();
+                }
+            });
+
+            switch_AutonomousBlinking.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                autonomousAbilitiesActivity.setQiContext(this.qiContext);
+                if(isChecked){
+                    autonomousAbilitiesActivity.TurnOnAutonomousBlinking();
+                }else{
+                    autonomousAbilitiesActivity.TurnOffAutonomousBlinking();
                 }
             });
         }

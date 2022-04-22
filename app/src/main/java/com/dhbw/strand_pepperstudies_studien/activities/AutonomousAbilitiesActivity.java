@@ -25,8 +25,6 @@ public class AutonomousAbilitiesActivity {
                 .build();
         // Hold the ability asynchronously.
         holder.async().hold();
-        // Release the ability asynchronously.
-        //holder.async().release();
         Log.i(TAG, "Turned off background movement");
     }
 
@@ -38,8 +36,6 @@ public class AutonomousAbilitiesActivity {
                 .build();
         // Hold the ability asynchronously.
         holder.async().hold();
-        // Release the ability asynchronously.
-        //holder.async().release();
         Log.i(TAG, "Turned off basic awareness");
     }
 
@@ -51,8 +47,6 @@ public class AutonomousAbilitiesActivity {
                 .build();
         // Hold the ability asynchronously.
         holder.async().hold();
-        // Release the ability asynchronously.
-        //holder.async().release();
         Log.i(TAG, "Turned off autonomous blinking");
     }
 
@@ -62,8 +56,6 @@ public class AutonomousAbilitiesActivity {
         Holder holder = HolderBuilder.with(qiContext)
                 .withAutonomousAbilities(AutonomousAbilitiesType.BACKGROUND_MOVEMENT)
                 .build();
-        // Hold the ability asynchronously.
-        //holder.async().hold();
         // Release the ability asynchronously.
         holder.async().release();
         Log.i(TAG, "Turned on background movement");
@@ -75,8 +67,6 @@ public class AutonomousAbilitiesActivity {
         Holder holder = HolderBuilder.with(qiContext)
                 .withAutonomousAbilities(AutonomousAbilitiesType.BASIC_AWARENESS)
                 .build();
-        // Hold the ability asynchronously.
-        //holder.async().hold();
         // Release the ability asynchronously.
         holder.async().release();
         Log.i(TAG, "Turned on basic awareness");
@@ -88,8 +78,6 @@ public class AutonomousAbilitiesActivity {
         Holder holder = HolderBuilder.with(qiContext)
                 .withAutonomousAbilities(AutonomousAbilitiesType.AUTONOMOUS_BLINKING)
                 .build();
-        // Hold the ability asynchronously.
-        //holder.async().hold();
         // Release the ability asynchronously.
         holder.async().release();
         Log.i(TAG, "Turned on autonomous blinking");
