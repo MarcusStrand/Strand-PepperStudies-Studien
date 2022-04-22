@@ -12,16 +12,16 @@
 
         <Button
             android:id="@+id/button_SayTest"
-            android:layout_width="295dp"
-            android:layout_height="202dp"
+            android:layout_width="293dp"
+            android:layout_height="58dp"
             android:text="Test settings"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.761"
+            app:layout_constraintHorizontal_bias="0.976"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.779" />
+            app:layout_constraintVertical_bias="0.169" />
 
         <TextView
             android:layout_width="337dp"
@@ -37,29 +37,29 @@
 
         <Button
             android:id="@+id/button_Playground"
-            android:layout_width="295dp"
-            android:layout_height="202dp"
+            android:layout_width="305dp"
+            android:layout_height="59dp"
             android:text="Playground Button"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.788"
+            app:layout_constraintHorizontal_bias="0.976"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.04" />
 
         <Button
             android:id="@+id/button_Explanation"
-            android:layout_width="310dp"
-            android:layout_height="219dp"
+            android:layout_width="241dp"
+            android:layout_height="60dp"
             android:text="Explain this activity!"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.024"
+            app:layout_constraintHorizontal_bias="0.022"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.041" />
+            app:layout_constraintVertical_bias="0.029" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
