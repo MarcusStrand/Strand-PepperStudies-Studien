@@ -12,6 +12,10 @@ import android.widget.TextView;
 
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
+import com.aldebaran.qi.sdk.builder.AnimateBuilder;
+import com.aldebaran.qi.sdk.builder.AnimationBuilder;
+import com.aldebaran.qi.sdk.object.actuation.Animate;
+import com.aldebaran.qi.sdk.object.actuation.Animation;
 import com.aldebaran.qi.sdk.object.human.AttentionState;
 import com.aldebaran.qi.sdk.object.human.EngagementIntentionState;
 import com.aldebaran.qi.sdk.object.human.ExcitementState;
@@ -93,16 +97,14 @@ public class AnimationFragment extends Fragment implements RobotLifecycleCallbac
 
     @Override
     public void onRobotFocusRefused(String reason) {
-        Log.i(TAG, "Robot focus refused because " + reason +  " " + TAG);
+        Log.i(TAG, "Robot focus refused because " + reason + " " + TAG);
     }
 
 
     // Custom Methods
 
-    public void initializeButtonsAndOnClickListeners()
-    {
-        if(qiContext != null)
-        {
+    public void initializeButtonsAndOnClickListeners() {
+        if (qiContext != null) {
             button_Explanation = view.findViewById(R.id.button_Explanation);
             button_Animation = view.findViewById(R.id.button_Animation);
             button_Human = view.findViewById(R.id.button_Human);
@@ -127,35 +129,54 @@ public class AnimationFragment extends Fragment implements RobotLifecycleCallbac
             button_Human.setOnClickListener(v -> {
                 if (qiContext != null) {
                     humanActivity.setQiContext(this.qiContext);
+                    engagedHuman = null;
                     engagedHuman = humanActivity.startHumanActivity();
                     if (engagedHuman != null) {
-                        age = engagedHuman.getEstimatedAge().getYears();
-                        gender = engagedHuman.getEstimatedGender();
-                        pleasureState = engagedHuman.getEmotion().getPleasure();
-                        excitementState = engagedHuman.getEmotion().getExcitement();
-                        smileState = engagedHuman.getFacialExpressions().getSmile();
-                        attentionState = engagedHuman.getAttention();
-                        engagementIntentionState = engagedHuman.getEngagementIntention();
+                        retrieveCharacteristics(engagedHuman);
                         Log.i(TAG, "Human characteristics successfully stored.");
                     }
                     updateTextView();
-                    engagedHuman = null;
                 }
             });
-        }
-        else
-        {
-            Log.i(TAG,"QiContext is null! " + TAG);
+        } else {
+            Log.i(TAG, "QiContext is null! " + TAG);
         }
     }
 
-    public void updateTextView()
-    {
-        if(engagedHuman != null)
-        {
-            textView.setText("success");
+    public void updateTextView() {
+        if (engagedHuman != null) {
+            textView.setText("----------\nAge: " + age +
+                    "\nGender: " + gender +
+                    "\nPleasureState: " + pleasureState +
+                    "\nExcitementState: " + excitementState +
+                    "\nEngagementIntentionState: " + engagementIntentionState +
+                    "\nSmileState: " + smileState +
+                    "\n AttentionState: " + attentionState +"\n----------");
+        } else {
+            textView.setText("Human not found.");
         }
-        textView.setText("Human not found.");
     }
 
+    private void retrieveCharacteristics(Human human) {
+        new Thread(() -> {
+            // Get the characteristics.
+            this.age = human.getEstimatedAge().getYears();
+            this.gender = human.getEstimatedGender();
+            this.pleasureState = human.getEmotion().getPleasure();
+            this.excitementState = human.getEmotion().getExcitement();
+            this.engagementIntentionState = human.getEngagementIntention();
+            this.smileState = human.getFacialExpressions().getSmile();
+            this.attentionState = human.getAttention();
+
+            // Display the characteristics.
+            Log.i(TAG, "----- Human ------");
+            Log.i(TAG, "Age: " + age + " year(s)");
+            Log.i(TAG, "Gender: " + gender);
+            Log.i(TAG, "Pleasure state: " + pleasureState);
+            Log.i(TAG, "Excitement state: " + excitementState);
+            Log.i(TAG, "Engagement state: " + engagementIntentionState);
+            Log.i(TAG, "Smile state: " + smileState);
+            Log.i(TAG, "Attention state: " + attentionState);
+        }).start();
+    }
 }
