@@ -12,16 +12,16 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="357dp"
-            android:layout_height="163dp"
-            android:text="hier steht irgendwann was wichtiges eventuell"
+            android:layout_width="361dp"
+            android:layout_height="330dp"
+            android:text="Map goes here..."
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintHorizontal_bias="0.306"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.609" />
+            app:layout_constraintVertical_bias="0.56" />
 
         <Button
             android:id="@+id/button_Explanation"
@@ -38,8 +38,8 @@
 
         <Button
             android:id="@+id/button_MoveForward"
-            android:layout_width="290dp"
-            android:layout_height="153dp"
+            android:layout_width="266dp"
+            android:layout_height="60dp"
             android:text="Move"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -48,6 +48,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.046" />
+
+        <Button
+            android:id="@+id/button_LocalizeAndMap"
+            android:layout_width="263dp"
+            android:layout_height="60dp"
+            android:text="Show map"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.971"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.221" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

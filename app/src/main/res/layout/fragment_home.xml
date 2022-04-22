@@ -18,22 +18,23 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.932"
+            app:layout_constraintHorizontal_bias="0.915"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.423" />
+            app:layout_constraintVertical_bias="0.6" />
 
         <TextView
-            android:layout_width="322dp"
-            android:layout_height="118dp"
-            android:text="TODO: Explanation"
+            android:id="@+id/textView9"
+            android:layout_width="318dp"
+            android:layout_height="53dp"
+            android:text="Autonomous blinking lets you disable or enable peppers blinking animation in his eyes"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.025"
+            app:layout_constraintHorizontal_bias="0.476"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.422" />
+            app:layout_constraintVertical_bias="0.105" />
 
         <Button
             android:id="@+id/button_Explanation"
@@ -55,10 +56,10 @@
             android:text="Autonomous Blinking"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.911"
+            app:layout_constraintHorizontal_bias="0.896"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.027" />
+            app:layout_constraintVertical_bias="0.105" />
 
         <Switch
             android:id="@+id/switch_backgroundMovement"
@@ -67,10 +68,10 @@
             android:text="Background Movement"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.909"
+            app:layout_constraintHorizontal_bias="0.894"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.289" />
+            app:layout_constraintVertical_bias="0.448" />
 
         <Switch
             android:id="@+id/switch_basicAwareness"
@@ -79,10 +80,34 @@
             android:text="Basic Awareness"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.91"
+            app:layout_constraintHorizontal_bias="0.894"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.162" />
+            app:layout_constraintVertical_bias="0.278" />
+
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="297dp"
+            android:layout_height="56dp"
+            android:text="Basic Awareness lets pepper move its head if he detects a human which is walking around"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.46"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.278" />
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="324dp"
+            android:layout_height="52dp"
+            android:text="Background Movement lets pepper move his hands and head while talking or idling"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.479"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.442" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

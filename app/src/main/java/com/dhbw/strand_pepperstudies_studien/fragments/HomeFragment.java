@@ -100,7 +100,7 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
             if (qiContext != null) {
                 sayActivity.setQiContext(this.qiContext);
                 autonomousAbilitiesActivity.setQiContext(this.qiContext);
-                sayActivity.SaySomething("Explanation for HomeFragment");
+                sayActivity.SaySomething("Turn on or turn off different autonomous abilities. Then test them by clicking the test button.");
             }
         });
 
