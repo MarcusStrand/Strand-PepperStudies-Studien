@@ -20,10 +20,9 @@
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.028"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.892" />
+            app:layout_constraintVertical_bias="0.95" />
 
         <Button
             android:id="@+id/button_Explanation"
@@ -33,10 +32,10 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.027"
+            app:layout_constraintHorizontal_bias="0.1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.043" />
+            app:layout_constraintVertical_bias="0.096" />
 
         <Button
             android:id="@+id/button_Say"
@@ -46,10 +45,10 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.894"
+            app:layout_constraintHorizontal_bias="0.901"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.082" />
+            app:layout_constraintVertical_bias="0.111" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

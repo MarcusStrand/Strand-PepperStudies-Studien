@@ -60,10 +60,10 @@
         android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.034"
+        app:layout_constraintHorizontal_bias="0.078"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.222"
+        app:layout_constraintVertical_bias="0.289"
         app:srcCompat="@drawable/pepper" />
 
     <ImageView
@@ -73,9 +73,9 @@
         android:contentDescription="TODO"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.94"
+        app:layout_constraintHorizontal_bias="0.915"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.214"
+        app:layout_constraintVertical_bias="0.309"
         app:srcCompat="@drawable/dhbwlogo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

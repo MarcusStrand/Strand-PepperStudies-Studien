@@ -18,10 +18,10 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.847"
+            app:layout_constraintHorizontal_bias="0.761"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.789" />
+            app:layout_constraintVertical_bias="0.779" />
 
         <TextView
             android:layout_width="337dp"
@@ -43,10 +43,10 @@
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.848"
+            app:layout_constraintHorizontal_bias="0.788"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.012" />
+            app:layout_constraintVertical_bias="0.04" />
 
         <Button
             android:id="@+id/button_Explanation"

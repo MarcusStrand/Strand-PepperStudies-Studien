@@ -12,21 +12,21 @@
 
         <TextView
             android:id="@+id/textView3"
-            android:layout_width="397dp"
-            android:layout_height="282dp"
+            android:layout_width="357dp"
+            android:layout_height="163dp"
             android:text="hier steht irgendwann was wichtiges eventuell"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintHorizontal_bias="0.464"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.884" />
+            app:layout_constraintVertical_bias="0.867" />
 
         <Button
             android:id="@+id/button_Explanation"
-            android:layout_width="413dp"
-            android:layout_height="243dp"
+            android:layout_width="293dp"
+            android:layout_height="130dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
@@ -42,16 +42,16 @@
 
         <Button
             android:id="@+id/button_MoveForward"
-            android:layout_width="406dp"
-            android:layout_height="256dp"
+            android:layout_width="290dp"
+            android:layout_height="153dp"
             android:text="Move"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.933"
+            app:layout_constraintHorizontal_bias="0.971"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.075" />
+            app:layout_constraintVertical_bias="0.046" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
