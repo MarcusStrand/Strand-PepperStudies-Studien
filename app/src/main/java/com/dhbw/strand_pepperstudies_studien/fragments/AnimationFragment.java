@@ -8,12 +8,21 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
+import com.aldebaran.qi.sdk.object.human.AttentionState;
+import com.aldebaran.qi.sdk.object.human.EngagementIntentionState;
+import com.aldebaran.qi.sdk.object.human.ExcitementState;
+import com.aldebaran.qi.sdk.object.human.Gender;
+import com.aldebaran.qi.sdk.object.human.Human;
+import com.aldebaran.qi.sdk.object.human.PleasureState;
+import com.aldebaran.qi.sdk.object.human.SmileState;
 import com.dhbw.strand_pepperstudies_studien.MainActivity;
 import com.dhbw.strand_pepperstudies_studien.R;
 import com.dhbw.strand_pepperstudies_studien.activities.AnimationActivity;
+import com.dhbw.strand_pepperstudies_studien.activities.HumanActivity;
 import com.dhbw.strand_pepperstudies_studien.activities.SayActivity;
 
 public class AnimationFragment extends Fragment implements RobotLifecycleCallbacks {
@@ -24,10 +33,21 @@ public class AnimationFragment extends Fragment implements RobotLifecycleCallbac
 
     Button button_Explanation;
     Button button_Animation;
+    Button button_Human;
+    TextView textView;
 
     SayActivity sayActivity;
     AnimationActivity animationActivity;
+    HumanActivity humanActivity;
 
+    Human engagedHuman;
+    Integer age;
+    Gender gender;
+    PleasureState pleasureState;
+    ExcitementState excitementState;
+    SmileState smileState;
+    AttentionState attentionState;
+    EngagementIntentionState engagementIntentionState;
 
     // Android Lifecycle Callbacks
 
@@ -40,6 +60,7 @@ public class AnimationFragment extends Fragment implements RobotLifecycleCallbac
 
         sayActivity = new SayActivity();
         animationActivity = new AnimationActivity();
+        humanActivity = new HumanActivity();
 
         super.onCreate(savedInstanceState);
     }
@@ -84,6 +105,8 @@ public class AnimationFragment extends Fragment implements RobotLifecycleCallbac
         {
             button_Explanation = view.findViewById(R.id.button_Explanation);
             button_Animation = view.findViewById(R.id.button_Animation);
+            button_Human = view.findViewById(R.id.button_Human);
+            textView = view.findViewById(R.id.textViewAnimation);
 
             button_Explanation.setOnClickListener(v -> {
                 if (qiContext != null) {
@@ -100,10 +123,39 @@ public class AnimationFragment extends Fragment implements RobotLifecycleCallbac
                     animationActivity.doAnimation();
                 }
             });
+
+            button_Human.setOnClickListener(v -> {
+                if (qiContext != null) {
+                    humanActivity.setQiContext(this.qiContext);
+                    engagedHuman = humanActivity.startHumanActivity();
+                    if (engagedHuman != null) {
+                        age = engagedHuman.getEstimatedAge().getYears();
+                        gender = engagedHuman.getEstimatedGender();
+                        pleasureState = engagedHuman.getEmotion().getPleasure();
+                        excitementState = engagedHuman.getEmotion().getExcitement();
+                        smileState = engagedHuman.getFacialExpressions().getSmile();
+                        attentionState = engagedHuman.getAttention();
+                        engagementIntentionState = engagedHuman.getEngagementIntention();
+                        Log.i(TAG, "Human characteristics successfully stored.");
+                    }
+                    updateTextView();
+                    engagedHuman = null;
+                }
+            });
         }
         else
         {
             Log.i(TAG,"QiContext is null! " + TAG);
         }
     }
+
+    public void updateTextView()
+    {
+        if(engagedHuman != null)
+        {
+            textView.setText("Hallo");
+        }
+        textView.setText("Human not found.");
+    }
+
 }

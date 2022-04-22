@@ -23,7 +23,7 @@ public class SayActivity {
                         .build();
 
                 say.async().run();
-                Log.i(TAG, "I have said " + text + " successfully!");
+                Log.i(TAG, "I have said '" + text + "' successfully!");
             } else {
                 Log.i(TAG, "qiContext is null in SayActivity");
             }
