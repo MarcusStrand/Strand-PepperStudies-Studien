@@ -94,7 +94,7 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
         button_Explanation.setOnClickListener(v -> {
             if (qiContext != null) {
                 sayActivity.setQiContext(this.qiContext);
-                sayActivity.SaySomething("nothing here");
+                sayActivity.SaySomething("On this screen you can take a picture of what pepper sees. Update the imageview afterwards to display it.");
             }
         });
 
@@ -117,7 +117,7 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
                 else
                 {
                     sayActivity.setQiContext(this.qiContext);
-                    sayActivity.SaySomething("No picture found");
+                    sayActivity.SaySomething("No picture found, take one first!");
                 }
                 }
             });

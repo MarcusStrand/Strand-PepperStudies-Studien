@@ -16,7 +16,7 @@
             android:layout_height="48dp"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
-            android:text="Listen explanation here"
+            android:text="Things Pepper can hear: Hello, Hi"
             android:textAlignment="center"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -24,6 +24,21 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.305" />
+
+        <TextView
+            android:id="@+id/textView3"
+            android:layout_width="238dp"
+            android:layout_height="48dp"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:text="Updating the list will add the last thing pepper heard"
+            android:textAlignment="center"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.022"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.432" />
 
         <Button
             android:id="@+id/button_Explanation"
@@ -55,7 +70,7 @@
             android:id="@+id/button_UpdateList"
             android:layout_width="241dp"
             android:layout_height="60dp"
-            android:text="UpdateList"
+            android:text="Update List"
             android:textColor="#000000"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

@@ -101,7 +101,7 @@ public class MoveFragment extends Fragment implements RobotLifecycleCallbacks {
             button_Explanation.setOnClickListener(v -> {
                 if (qiContext != null) {
                     sayActivity.setQiContext(this.qiContext);
-                    sayActivity.SaySomething("TODO: explanation.");
+                    sayActivity.SaySomething("On this screen you can make me move forward a bit. You can also make me localize my surroundings and then display a map.");
                 }
             });
 

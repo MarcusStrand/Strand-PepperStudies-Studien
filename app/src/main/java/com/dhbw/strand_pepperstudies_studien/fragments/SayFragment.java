@@ -99,7 +99,9 @@ public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
             button_Explanation.setOnClickListener(v -> {
                 if (qiContext != null) {
                     sayActivity.setQiContext(this.qiContext);
-                    sayActivity.SaySomething("Explanation" );
+                    sayActivity.SaySomething("You can make me talk on this screen. I can also listen to what you say if you press the correct button." +
+                            " The list of things I can identify is on the left." +
+                            " Update this list after I listened to you." );
 
                 }
             });
@@ -110,10 +112,12 @@ public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
                     if(currentPhraseFuture != null )
                     {
                         String resultString = currentPhraseFuture.getValue().getHeardPhrase().getText();
-                        heardPhrases = heardPhrases.concat(resultString + "\n");
-                        textViewPepperListen.setText("---------- Things you said ----------\n\n"
-                                + heardPhrases);
-                        currentPhraseFuture = null;
+                        if(!resultString.equals(""))
+                        {
+                            heardPhrases = heardPhrases.concat(resultString + "\n");
+                            textViewPepperListen.setText("---------- Things you said ----------\n\n"
+                                    + heardPhrases);
+                        }
                     }
                     else
                     {
@@ -126,7 +130,7 @@ public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
             button_Say.setOnClickListener(v -> {
                 if (qiContext != null) {
                     sayActivity.setQiContext(this.qiContext);
-                    sayActivity.SaySomething("I am going to explode in 3... 2... 1... boom!" );
+                    sayActivity.SaySomething("I am going to explode in 3. . .... 2. . .... 1. . .... boom!" );
                 }
             });
 
