@@ -1,17 +1,20 @@
 package com.dhbw.strand_pepperstudies_studien.fragments;
 
+import android.graphics.Bitmap;
 import android.util.*;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
 import com.dhbw.strand_pepperstudies_studien.MainActivity;
 import com.dhbw.strand_pepperstudies_studien.R;
 import com.dhbw.strand_pepperstudies_studien.activities.SayActivity;
+import com.dhbw.strand_pepperstudies_studien.activities.TakePictureActivity;
 
 import androidx.fragment.app.Fragment;
 
@@ -22,9 +25,12 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
     QiContext qiContext;
 
     Button button_Explanation;
-    Button button_SayTest;
+    Button button_TakePicture;
+    Button button_UpdatePicture;
+    ImageView imageView_CameraPicture;
 
     SayActivity sayActivity;
+    TakePictureActivity takePictureActivity;
 
 
     // Android Lifecycle Callbacks
@@ -37,6 +43,7 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
     public void onCreate(Bundle savedInstanceState) {
 
         sayActivity = new SayActivity();
+        takePictureActivity = new TakePictureActivity();
 
         super.onCreate(savedInstanceState);
     }
@@ -80,7 +87,9 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
         if(qiContext != null)
         {
         button_Explanation = view.findViewById(R.id.button_Explanation);
-        button_SayTest = view.findViewById(R.id.button_SayTest);
+        button_TakePicture = view.findViewById(R.id.button_TakePicture);
+        button_UpdatePicture = view.findViewById(R.id.button_UpdatePicture);
+        imageView_CameraPicture = view.findViewById(R.id.imageView_CameraPicture);
 
         button_Explanation.setOnClickListener(v -> {
             if (qiContext != null) {
@@ -89,13 +98,29 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
             }
         });
 
-            button_SayTest.setOnClickListener(v -> {
+            button_TakePicture.setOnClickListener(v -> {
                 if (qiContext != null) {
-                sayActivity.setQiContext(this.qiContext);
-                sayActivity.SaySomething("This is a test dialog to test my movement.");
+                    sayActivity.setQiContext(this.qiContext);
+                takePictureActivity.setQiContext(this.qiContext);
+                sayActivity.SaySomething("Picture taken");
+                takePictureActivity.takePicture();
                 }
             });
 
+            button_UpdatePicture.setOnClickListener(v -> {
+                if (qiContext != null) {
+                Bitmap bmp = takePictureActivity.updatePicture();
+                if(bmp != null)
+                {
+                    imageView_CameraPicture.setImageBitmap(bmp);
+                }
+                else
+                {
+                    sayActivity.setQiContext(this.qiContext);
+                    sayActivity.SaySomething("No picture found");
+                }
+                }
+            });
         }
         else
         {
