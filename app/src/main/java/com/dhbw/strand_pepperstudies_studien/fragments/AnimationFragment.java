@@ -12,10 +12,6 @@ import android.widget.TextView;
 
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
-import com.aldebaran.qi.sdk.builder.AnimateBuilder;
-import com.aldebaran.qi.sdk.builder.AnimationBuilder;
-import com.aldebaran.qi.sdk.object.actuation.Animate;
-import com.aldebaran.qi.sdk.object.actuation.Animation;
 import com.aldebaran.qi.sdk.object.human.AttentionState;
 import com.aldebaran.qi.sdk.object.human.EngagementIntentionState;
 import com.aldebaran.qi.sdk.object.human.ExcitementState;

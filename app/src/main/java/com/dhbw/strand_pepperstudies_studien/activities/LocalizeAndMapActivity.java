@@ -2,15 +2,11 @@ package com.dhbw.strand_pepperstudies_studien.activities;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 
 import com.aldebaran.qi.Future;
 import com.aldebaran.qi.sdk.QiContext;
-import com.aldebaran.qi.sdk.builder.GoToBuilder;
 import com.aldebaran.qi.sdk.builder.LocalizeAndMapBuilder;
-import com.aldebaran.qi.sdk.builder.TransformBuilder;
 import com.aldebaran.qi.sdk.object.actuation.ExplorationMap;
-import com.aldebaran.qi.sdk.object.actuation.GoTo;
 import com.aldebaran.qi.sdk.object.actuation.LocalizationStatus;
 import com.aldebaran.qi.sdk.object.actuation.LocalizeAndMap;
 import com.aldebaran.qi.sdk.object.actuation.MapTopGraphicalRepresentation;

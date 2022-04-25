@@ -7,14 +7,10 @@ import android.view.MenuItem;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
-import com.aldebaran.qi.Future;
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.QiSDK;
 import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
-import com.aldebaran.qi.sdk.builder.HolderBuilder;
 import com.aldebaran.qi.sdk.design.activity.RobotActivity;
-import com.aldebaran.qi.sdk.object.holder.AutonomousAbilitiesType;
-import com.aldebaran.qi.sdk.object.holder.Holder;
 import com.dhbw.strand_pepperstudies_studien.activities.*;
 import com.dhbw.strand_pepperstudies_studien.fragments.*;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -34,10 +30,6 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
     SayActivity sayActivity;
     AnimationActivity animationActivity;
     MoveActivity moveActivity;
-
-    Holder autonomousBlinkingHolder;
-    Holder basicAwarenessHolder;
-    Holder backgroundMovementHolder;
 
     // Android Lifecycle Callbacks
 

@@ -6,7 +6,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Switch;
 
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
@@ -24,9 +23,6 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
 
     Button button_Explanation;
     Button button_SayTest;
-    Switch switch_AutonomousBlinking;
-    Switch switch_BasicAwareness;
-    Switch switch_BackgroundMovement;
 
     SayActivity sayActivity;
 
