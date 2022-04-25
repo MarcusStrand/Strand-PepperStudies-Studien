@@ -8,11 +8,15 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
+import com.aldebaran.qi.Future;
 import com.aldebaran.qi.sdk.QiContext;
 import com.aldebaran.qi.sdk.RobotLifecycleCallbacks;
+import com.aldebaran.qi.sdk.object.conversation.ListenResult;
 import com.dhbw.strand_pepperstudies_studien.MainActivity;
 import com.dhbw.strand_pepperstudies_studien.R;
+import com.dhbw.strand_pepperstudies_studien.activities.ListenActivity;
 import com.dhbw.strand_pepperstudies_studien.activities.SayActivity;
 
 public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
@@ -23,8 +27,15 @@ public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
 
     Button button_Explanation;
     Button button_Say;
+    Button button_ListenToMe;
+    Button button_UpdateList;
+    TextView textViewPepperListen;
 
     SayActivity sayActivity;
+    ListenActivity listenActivity;
+
+    String heardPhrases = "";
+    Future<ListenResult> currentPhraseFuture;
 
 
     // Android Lifecycle Callbacks
@@ -81,18 +92,48 @@ public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
         {
             button_Explanation = view.findViewById(R.id.button_Explanation);
             button_Say = view.findViewById(R.id.button_Say);
+            button_ListenToMe = view.findViewById(R.id.button_ListenToMe);
+            button_UpdateList = view.findViewById(R.id.button_UpdateList);
+            textViewPepperListen = view.findViewById(R.id.textViewPepperListen);
 
             button_Explanation.setOnClickListener(v -> {
                 if (qiContext != null) {
                     sayActivity.setQiContext(this.qiContext);
-                    sayActivity.SaySomething("This button should explain the say screen to you, but it does not");
+                    sayActivity.SaySomething("Explanation" );
+
+                }
+            });
+
+            button_UpdateList.setOnClickListener(v -> {
+                if (qiContext != null) {
+                    if(currentPhraseFuture != null)
+                    {
+                        String resultString = currentPhraseFuture.getValue().getHeardPhrase().getText();
+                        heardPhrases = heardPhrases.concat(resultString + "\n");
+                        textViewPepperListen.setText("---------- Things you said ----------\n"
+                                + heardPhrases);
+                        currentPhraseFuture = null;
+                    }
+                    else
+                    {
+                        sayActivity.setQiContext(this.qiContext);
+                        sayActivity.SaySomething("No saved phrase");
+                    }
                 }
             });
 
             button_Say.setOnClickListener(v -> {
                 if (qiContext != null) {
                     sayActivity.setQiContext(this.qiContext);
-                    sayActivity.SaySomething("I am going to explode in 3,,, 2,,, 1,,, boom!" );
+                    sayActivity.SaySomething("I am going to explode in 3... 2... 1... boom!" );
+                }
+            });
+
+            button_ListenToMe.setOnClickListener(v -> {
+                if (qiContext != null) {
+                    listenActivity = new ListenActivity();
+                    listenActivity.setQiContext(this.qiContext);
+                    currentPhraseFuture = listenActivity.startListenFunction();
                 }
             });
         }
