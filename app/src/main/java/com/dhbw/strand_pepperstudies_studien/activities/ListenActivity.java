@@ -21,7 +21,7 @@ public class ListenActivity {
         this.qiContext = qiContext;
     }
 
-    public Future<ListenResult> startListenFunction()
+    public void startListenFunction()
     {
         new Thread(() -> {
             if (qiContext != null) {
@@ -36,12 +36,14 @@ public class ListenActivity {
                         .build();
 
                 resultFuture = listen.async().run();
-                //TODO: hier muss gewartet werden sonst macht er weiter und resultfuture ist null
             } else {
                 Log.i(TAG, "qiContext is null in ListenActivity");
             }
         }).start();
-        Log.i(TAG, resultFuture.getValue().getHeardPhrase().getText());
+    }
+
+    public Future<ListenResult> getResultFuture()
+    {
         return resultFuture;
     }
 }

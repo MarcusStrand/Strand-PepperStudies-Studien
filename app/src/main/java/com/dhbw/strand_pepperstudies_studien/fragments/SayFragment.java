@@ -105,12 +105,13 @@ public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
             });
 
             button_UpdateList.setOnClickListener(v -> {
-                if (qiContext != null) {
-                    if(currentPhraseFuture != null)
+                if (qiContext !=  null && listenActivity != null) {
+                    currentPhraseFuture = listenActivity.getResultFuture();
+                    if(currentPhraseFuture != null )
                     {
                         String resultString = currentPhraseFuture.getValue().getHeardPhrase().getText();
                         heardPhrases = heardPhrases.concat(resultString + "\n");
-                        textViewPepperListen.setText("---------- Things you said ----------\n"
+                        textViewPepperListen.setText("---------- Things you said ----------\n\n"
                                 + heardPhrases);
                         currentPhraseFuture = null;
                     }
@@ -133,7 +134,7 @@ public class SayFragment extends Fragment implements RobotLifecycleCallbacks {
                 if (qiContext != null) {
                     listenActivity = new ListenActivity();
                     listenActivity.setQiContext(this.qiContext);
-                    currentPhraseFuture = listenActivity.startListenFunction();
+                    listenActivity.startListenFunction();
                 }
             });
         }
