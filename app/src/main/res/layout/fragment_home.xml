@@ -27,7 +27,7 @@
             android:id="@+id/button_UpdatePicture"
             android:layout_width="229dp"
             android:layout_height="70dp"
-            android:text="Update Picture"
+            android:text="Show Picture"
             android:textColor="@color/black"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

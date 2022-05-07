@@ -1,6 +1,7 @@
 package com.dhbw.strand_pepperstudies_studien.fragments;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -149,7 +150,7 @@ public class AnimationFragment extends Fragment implements RobotLifecycleCallbac
                     "\nExcitementState: " + excitementState +
                     "\nEngagementIntentionState: " + engagementIntentionState +
                     "\nSmileState: " + smileState +
-                    "\n AttentionState: " + attentionState +"\n----------");
+                    "\n AttentionState: " + attentionState + "\n----------");
         } else {
             textView.setText("Human not found.");
         }

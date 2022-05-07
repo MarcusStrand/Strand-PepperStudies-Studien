@@ -1,6 +1,7 @@
 package com.dhbw.strand_pepperstudies_studien.fragments;
 
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -30,7 +31,7 @@ public class WelcomeFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        Log.i(TAG,TAG + " successfully created!");
+        Log.i(TAG, TAG + " successfully created!");
         return inflater.inflate(R.layout.fragment_welcome, container, false);
     }
 }

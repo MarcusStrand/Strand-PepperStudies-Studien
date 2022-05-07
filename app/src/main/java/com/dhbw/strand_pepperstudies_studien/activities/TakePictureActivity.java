@@ -23,36 +23,27 @@ public class TakePictureActivity {
         this.qiContext = qiContext;
     }
 
-    public void takePicture()
-    {
+    public void takePicture() {
         new Thread(() -> {
             if (qiContext != null) {
-                // Build the action.
-                TakePicture takePicture = TakePictureBuilder.with(qiContext).build();
 
-                // Run the action synchronously.
+                // Take the picture
+                TakePicture takePicture = TakePictureBuilder.with(qiContext).build();
                 result = takePicture.async().run().getValue();
 
-                // Retrieve the image data.
-                // 1. get a proxy to access the data
+                // Retrieve the image data and convert
                 EncodedImageHandle encodedImageHandle = result.getImage();
-                // 2. copy the remote data with the getValue() method
                 EncodedImage encodedImage = encodedImageHandle.getValue();
-                //convert to bitmap
                 byte[] byteArray = encodedImage.getData().array();
                 bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
-
-
             } else {
                 Log.i(TAG, "qiContext is null in TakePictureActivity");
             }
         }).start();
     }
 
-    public Bitmap updatePicture()
-    {
-        if(bmp != null)
-        {
+    public Bitmap updatePicture() {
+        if (bmp != null) {
             return bmp;
         }
         return null;

@@ -82,7 +82,7 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
 
     @Override
     public void onRobotFocusRefused(String reason) {
-        Log.i(TAG, "Robot focus refused because " + reason +  " " + TAG);
+        Log.i(TAG, "Robot focus refused because " + reason + " " + TAG);
     }
 
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -110,8 +110,7 @@ public class MainActivity extends RobotActivity implements RobotLifecycleCallbac
         return false;
     }
 
-    public QiContext getQiContext()
-    {
+    public QiContext getQiContext() {
         return this.qiContext;
     }
 }

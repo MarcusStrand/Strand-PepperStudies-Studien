@@ -2,6 +2,7 @@ package com.dhbw.strand_pepperstudies_studien.fragments;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
+
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -82,16 +83,14 @@ public class MoveFragment extends Fragment implements RobotLifecycleCallbacks {
 
     @Override
     public void onRobotFocusRefused(String reason) {
-        Log.i(TAG, "Robot focus refused because " + reason +  " " + TAG);
+        Log.i(TAG, "Robot focus refused because " + reason + " " + TAG);
     }
 
 
     //Custom Methods
 
-    public void initializeButtonsAndOnClickListeners()
-    {
-        if(qiContext != null)
-        {
+    public void initializeButtonsAndOnClickListeners() {
+        if (qiContext != null) {
             button_Explanation = view.findViewById(R.id.button_Explanation);
             button_MoveForward = view.findViewById(R.id.button_MoveForward);
             button_LocalizeAndMap = view.findViewById(R.id.button_LocalizeAndMap);
@@ -108,13 +107,10 @@ public class MoveFragment extends Fragment implements RobotLifecycleCallbacks {
             button_UpdateMap.setOnClickListener(v -> {
                 if (qiContext != null) {
                     sayActivity.setQiContext(this.qiContext);
-                    if(bmp != null)
-                    {
+                    if (bmp != null) {
                         sayActivity.SaySomething("Here is the updated map.");
                         imageView.setImageBitmap(Bitmap.createScaledBitmap(bmp, imageView.getWidth(), imageView.getHeight(), false));
-                    }
-                    else
-                    {
+                    } else {
                         sayActivity.SaySomething("Create a map first.");
                     }
                 }
@@ -137,10 +133,8 @@ public class MoveFragment extends Fragment implements RobotLifecycleCallbacks {
                     bmp = localizeAndMapActivity.LocalizeAndMap();
                 }
             });
-        }
-        else
-        {
-            Log.i(TAG,"QiContext is null! " + TAG);
+        } else {
+            Log.i(TAG, "QiContext is null! " + TAG);
         }
     }
 }

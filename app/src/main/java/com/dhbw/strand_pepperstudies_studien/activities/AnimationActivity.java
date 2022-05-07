@@ -18,8 +18,7 @@ public class AnimationActivity {
         this.qiContext = qiContext;
     }
 
-    public void doAnimation()
-    {
+    public void doAnimation() {
         new Thread(() -> {
             if (qiContext != null) {
 

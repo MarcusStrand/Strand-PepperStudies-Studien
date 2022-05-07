@@ -76,55 +76,48 @@ public class HomeFragment extends Fragment implements RobotLifecycleCallbacks {
 
     @Override
     public void onRobotFocusRefused(String reason) {
-        Log.i(TAG, "Robot focus refused because " + reason +  " " + TAG);
+        Log.i(TAG, "Robot focus refused because " + reason + " " + TAG);
     }
 
 
     //Custom Methods
 
-    public void initializeButtonsAndOnClickListeners()
-    {
-        if(qiContext != null)
-        {
-        button_Explanation = view.findViewById(R.id.button_Explanation);
-        button_TakePicture = view.findViewById(R.id.button_TakePicture);
-        button_UpdatePicture = view.findViewById(R.id.button_UpdatePicture);
-        imageView_CameraPicture = view.findViewById(R.id.imageView_CameraPicture);
+    public void initializeButtonsAndOnClickListeners() {
+        if (qiContext != null) {
+            button_Explanation = view.findViewById(R.id.button_Explanation);
+            button_TakePicture = view.findViewById(R.id.button_TakePicture);
+            button_UpdatePicture = view.findViewById(R.id.button_UpdatePicture);
+            imageView_CameraPicture = view.findViewById(R.id.imageView_CameraPicture);
 
-        button_Explanation.setOnClickListener(v -> {
-            if (qiContext != null) {
-                sayActivity.setQiContext(this.qiContext);
-                sayActivity.SaySomething("On this screen you can take a picture of what pepper sees. Update the imageview afterwards to display it.");
-            }
-        });
+            button_Explanation.setOnClickListener(v -> {
+                if (qiContext != null) {
+                    sayActivity.setQiContext(this.qiContext);
+                    sayActivity.SaySomething("On this screen you can take a picture of what pepper sees. Update the imageview afterwards to display it.");
+                }
+            });
 
             button_TakePicture.setOnClickListener(v -> {
                 if (qiContext != null) {
                     sayActivity.setQiContext(this.qiContext);
-                takePictureActivity.setQiContext(this.qiContext);
-                sayActivity.SaySomething("Picture taken");
-                takePictureActivity.takePicture();
+                    takePictureActivity.setQiContext(this.qiContext);
+                    sayActivity.SaySomething("Picture taken");
+                    takePictureActivity.takePicture();
                 }
             });
 
             button_UpdatePicture.setOnClickListener(v -> {
                 if (qiContext != null) {
-                Bitmap bmp = takePictureActivity.updatePicture();
-                if(bmp != null)
-                {
-                    imageView_CameraPicture.setImageBitmap(bmp);
-                }
-                else
-                {
-                    sayActivity.setQiContext(this.qiContext);
-                    sayActivity.SaySomething("No picture found, take one first!");
-                }
+                    Bitmap bmp = takePictureActivity.updatePicture();
+                    if (bmp != null) {
+                        imageView_CameraPicture.setImageBitmap(bmp);
+                    } else {
+                        sayActivity.setQiContext(this.qiContext);
+                        sayActivity.SaySomething("No picture found, take one first!");
+                    }
                 }
             });
-        }
-        else
-        {
-            Log.i(TAG,"QiContext is null! " + TAG);
+        } else {
+            Log.i(TAG, "QiContext is null! " + TAG);
         }
     }
 }

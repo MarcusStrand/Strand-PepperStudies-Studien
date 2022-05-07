@@ -18,8 +18,7 @@ public class HumanActivity {
         this.qiContext = qiContext;
     }
 
-    public Human startHumanActivity()
-    {
+    public Human startHumanActivity() {
         new Thread(() -> {
             if (qiContext != null) {
                 humanAwareness = qiContext.getHumanAwareness();

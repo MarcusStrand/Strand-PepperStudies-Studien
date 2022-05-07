@@ -25,8 +25,7 @@ public class LocalizeAndMapActivity {
         this.qiContext = qiContext;
     }
 
-    public Bitmap LocalizeAndMap()
-    {
+    public Bitmap LocalizeAndMap() {
         new Thread(() -> {
             // Build the action.
             localizeAndMap = LocalizeAndMapBuilder.with(qiContext).build();
@@ -34,9 +33,8 @@ public class LocalizeAndMapActivity {
             // Add a listener to get the map when localized.
             localizeAndMap.addOnStatusChangedListener(localizationStatus -> {
                 if (localizationStatus == LocalizationStatus.LOCALIZED) {
-                    // Stop the action.
+                    // Cancel the localization and process the map to a bitmap.
                     localizingAndMapping.requestCancellation();
-                    // Dump the map for future use by a Localize action.
                     explorationMap = localizeAndMap.dumpMap();
                     MapTopGraphicalRepresentation mapGraphicalRepresentation =
                             explorationMap.getTopGraphicalRepresentation();
@@ -45,7 +43,6 @@ public class LocalizeAndMapActivity {
                     bmp = BitmapFactory.decodeByteArray(byteArray, 0, byteArray.length);
                 }
             });
-            // Run the action.
             localizingAndMapping = localizeAndMap.async().run();
         }).start();
         return bmp;

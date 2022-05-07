@@ -10,6 +10,8 @@ import com.aldebaran.qi.sdk.object.conversation.Listen;
 import com.aldebaran.qi.sdk.object.conversation.ListenResult;
 import com.aldebaran.qi.sdk.object.conversation.PhraseSet;
 
+import java.util.concurrent.CountDownLatch;
+
 public class ListenActivity {
 
     private static final String TAG = "PepperStudies_ListenActivity";
@@ -21,14 +23,13 @@ public class ListenActivity {
         this.qiContext = qiContext;
     }
 
-    public void startListenFunction()
-    {
-        new Thread(() -> {
+    public void startListenFunction() {
+        Thread thread = new Thread(() -> {
             if (qiContext != null) {
 
                 // Create a phrase set.
                 PhraseSet phraseSet = PhraseSetBuilder.with(qiContext)
-                        .withTexts("Hello", "Hi")
+                        .withTexts("Hello", "Hi", "Dog", "Cat", "Hamster", "Goodbye", "Bye")
                         .build();
 
                 Listen listen = ListenBuilder.with(qiContext)
@@ -39,11 +40,11 @@ public class ListenActivity {
             } else {
                 Log.i(TAG, "qiContext is null in ListenActivity");
             }
-        }).start();
+        });
+        thread.start();
     }
 
-    public Future<ListenResult> getResultFuture()
-    {
+    public Future<ListenResult> getResultFuture() {
         return resultFuture;
     }
 }
