@@ -24,7 +24,7 @@ public class ListenActivity {
     }
 
     public void startListenFunction() {
-        Thread thread = new Thread(() -> {
+        new Thread(() -> {
             if (qiContext != null) {
 
                 // Create a phrase set.
@@ -40,8 +40,7 @@ public class ListenActivity {
             } else {
                 Log.i(TAG, "qiContext is null in ListenActivity");
             }
-        });
-        thread.start();
+        }).start();
     }
 
     public Future<ListenResult> getResultFuture() {

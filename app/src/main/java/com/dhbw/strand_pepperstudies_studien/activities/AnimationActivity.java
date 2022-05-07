@@ -31,7 +31,7 @@ public class AnimationActivity {
                         .build();
 
                 animate.async().run();
-                Log.i(TAG, "I moved myself");
+                Log.i(TAG, "I did an animation");
             } else {
                 Log.i(TAG, "qiContext is null in AnimationActivity");
             }
